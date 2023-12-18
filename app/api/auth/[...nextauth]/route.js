@@ -1,7 +1,8 @@
 
 import CredentialsProvider from "next-auth/providers/credentials"
 import NextAuth, {NextAuthOptions} from "next-auth"
-import {users} from "../../../helpers/constants"
+// import {users} from "../../../helpers/constants"
+import user from "@/models/User"
 
 export const authOptions = {
     providers:[
@@ -13,7 +14,7 @@ export const authOptions = {
             },
             async authorize(credentials){
                 if(!credentials || !credentials.email || !credentials.password) return null
-                const user = users.find(item => item.email === credentials.email)
+                const user = user.find(item => item.email === credentials.email)
                 if(user?.password === credentials.password) return null
                 return null
             }
