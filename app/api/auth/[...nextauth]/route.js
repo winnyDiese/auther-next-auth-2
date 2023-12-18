@@ -10,7 +10,7 @@ export const authOptions = {
             credentials: {
                 email: {label:"Email", type:"text", placeholder:"Enter email..."},
                 password: {label:"Password", type:"password", placeholder:"Enter password..."}
-            }, 
+            },
             async authorize(credentials){
                 if(!credentials || !credentials.email || !credentials.password) return null
                 const user = users.find(item => item.email === credentials.email)
